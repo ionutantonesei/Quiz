@@ -40,7 +40,17 @@ h1{
     background-color: #7FFF00;
     box-shadow: 10px 5px 5px gray;
 }
+.buton-start{
+    display: inline;
+    position: absolute;
+    left: 30%;
+    top: 40%;
+    height: 15%;
+    width: 40%;
+    z-index:3;
+}
 .raspuns{
+    display:none;
     width: 40%;
     height: 15%;
     font-size: 2vw;
