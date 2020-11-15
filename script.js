@@ -3,7 +3,16 @@ const buton2 = document.getElementById('raspuns2');
 const buton3 = document.getElementById('raspuns3');
 const buton4 = document.getElementById('raspuns4');
 const butonStart = document.getElementById('butonStart');
-const intrebare = document.getElementById('intrebare');
+const intrebareElement = document.getElementById('intrebare');
+let validareButon1 = 0;
+let validareButon2 = 0;
+let validareButon3 = 0;
+let validareButon4 = 0;
+
+let intrebari = [{
+    intrebare : 'Cat face 2+2?',
+    raspuns : [['2' , false],['4',true],['10',false],['0',false]]
+}]
 
 butonStart.addEventListener('click',function start(){
     butonStart.style.display = 'none';
@@ -11,14 +20,50 @@ butonStart.addEventListener('click',function start(){
     buton2.style.display = 'inline';
     buton3.style.display = 'inline';
     buton4.style.display = 'inline';
-    intrebare.innerText = 'Cat face 2+2?';
-    buton1.innerText = '3';
-    buton2.innerText = '1';
-    buton3.innerText = '4';
-    buton4.innerText = '12';
+    intrebareElement.innerText = intrebari[0].intrebare;
+    buton1.innerText = intrebari[0].raspuns[0][0];
+    buton2.innerText = intrebari[0].raspuns[1][0];
+    buton3.innerText = intrebari[0].raspuns[2][0];
+    buton4.innerText = intrebari[0].raspuns[3][0];
 });
 
-buton1.addEventListener('click',function(){document.body.style.backgroundColor = 'var(--gresit)'});
-buton2.addEventListener('click',function(){document.body.style.backgroundColor = 'var(--gresit)'});
-buton3.addEventListener('click',function(){document.body.style.backgroundColor = 'var(--corect)'});
-buton4.addEventListener('click',function(){document.body.style.backgroundColor = 'var(--gresit)'});
+buton1.addEventListener('click',()=>{
+    if (validareButon1 == 1){
+        buton1.style.backgroundColor = 'darkolivegreen';
+        validareButon1 = 0;
+    }
+    else {
+        buton1.style.backgroundColor = 'darkorange';
+        validareButon1 = 1;
+    }
+});
+buton2.addEventListener('click',()=>{
+    if (validareButon2 == 1){
+        buton2.style.backgroundColor = 'darkolivegreen';
+        validareButon2 = 0;
+    }
+    else {
+        buton2.style.backgroundColor = 'darkorange';
+        validareButon2 = 1;
+    }
+});
+buton3.addEventListener('click',()=>{
+    if (validareButon3 == 1){
+        buton3.style.backgroundColor = 'darkolivegreen';
+        validareButon3 = 0;
+    }
+    else {
+        buton3.style.backgroundColor = 'darkorange';
+        validareButon3 = 1;
+    }
+});
+buton4.addEventListener('click',()=>{
+    if (validareButon4 == 1){
+        buton4.style.backgroundColor = 'darkolivegreen';
+        validareButon4 = 0;
+    }
+    else {
+        buton4.style.backgroundColor = 'darkorange';
+        validareButon4 = 1;
+    }
+});
