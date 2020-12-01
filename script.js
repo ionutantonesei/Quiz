@@ -3,19 +3,38 @@ const buton2 = document.getElementById('raspuns2');
 const buton3 = document.getElementById('raspuns3');
 const buton4 = document.getElementById('raspuns4');
 const butonStart = document.getElementById('butonStart');
+const urmatorul = document.getElementById('urmatorul-buton');
+const anterior = document.getElementById('anterior-buton');
 const intrebareElement = document.getElementById('intrebare');
 let validareButon1 = 0;
 let validareButon2 = 0;
 let validareButon3 = 0;
 let validareButon4 = 0;
+let i = 0;
+let j = 0;
+let corect = 0;
 
 let intrebari = [{
     intrebare : 'Cat face 2+2?',
     raspuns : [['2' , false],['4',true],['10',false],['0',false]]
+},
+{
+    intrebare : 'Care este capitala Romaniei?',
+    raspuns : [['Bucuresti' , true ],['Iasi', false],['Craiova' , false],['Budapesta' , false]]
+},
+{
+    intrebare : 'Care este cel mai inalt varf muntos din Romania?',
+    raspuns: [['Negoiu' , false],['Moldoveanu' , true],['Omu' , false],['Rodnei' , false]]
+},
+{
+    intrebare : 'In ce an a avut loc Razboiul de independenta din Romania?',
+    raspuns: [['1945' , false],['1989' , false],['1918' , false],['1866' , true]]
 }]
 
 butonStart.addEventListener('click',function start(){
     butonStart.style.display = 'none';
+    urmatorul.style.display = 'flex';
+    anterior.style.display = 'flex';
     buton1.style.display = 'inline';
     buton2.style.display = 'inline';
     buton3.style.display = 'inline';
@@ -67,3 +86,26 @@ buton4.addEventListener('click',()=>{
         validareButon4 = 1;
     }
 });
+urmatorul.addEventListener('click',()=>{
+    i+=1;
+    if (i>=intrebari.length){
+        i = 0;
+    }
+    intrebareElement.innerText = intrebari[i].intrebare;
+    buton1.innerText = intrebari[i].raspuns[0][0];
+    buton2.innerText = intrebari[i].raspuns[1][0];
+    buton3.innerText = intrebari[i].raspuns[2][0];
+    buton4.innerText = intrebari[i].raspuns[3][0];
+    
+})
+anterior.addEventListener('click',()=>{
+    if (i == 0){
+        i = 4;
+}
+        i-=1;
+    intrebareElement.innerText = intrebari[i].intrebare;
+    buton1.innerText = intrebari[i].raspuns[0][0];
+    buton2.innerText = intrebari[i].raspuns[1][0];
+    buton3.innerText = intrebari[i].raspuns[2][0];
+    buton4.innerText = intrebari[i].raspuns[3][0];
+})
