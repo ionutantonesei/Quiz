@@ -11,8 +11,8 @@ let validareButon2 = 0;
 let validareButon3 = 0;
 let validareButon4 = 0;
 let i = 0;
-let j = 0;
 let corect = 0;
+
 
 let intrebari = [{
     intrebare : 'Cat face 2+2?',
@@ -87,22 +87,23 @@ buton4.addEventListener('click',()=>{
     }
 });
 urmatorul.addEventListener('click',()=>{
+    if ((validareButon1 == 1 && intrebari[i].raspuns[0][1] == true) || (validareButon2 == 1 && intrebari[i].raspuns[1][1] == true) || (validareButon3 == 1 && intrebari[i].raspuns[2][1] == true) || (validareButon4 == 1 && intrebari[i].raspuns[3][1] == true)){
+        corect+=1;
+    }
+    else {
+        corect-=1;
+    }
+    urmatorulButon = 1;
+    buton1.style.backgroundColor = 'darkolivegreen';
+    buton2.style.backgroundColor = 'darkolivegreen';
+    buton3.style.backgroundColor = 'darkolivegreen';
+    buton4.style.backgroundColor = 'darkolivegreen';
     i+=1;
     if (i>=intrebari.length){
         i = 0;
+        alert(`Scorul este: ${corect}`);
+        corect = 0;
     }
-    intrebareElement.innerText = intrebari[i].intrebare;
-    buton1.innerText = intrebari[i].raspuns[0][0];
-    buton2.innerText = intrebari[i].raspuns[1][0];
-    buton3.innerText = intrebari[i].raspuns[2][0];
-    buton4.innerText = intrebari[i].raspuns[3][0];
-    
-})
-anterior.addEventListener('click',()=>{
-    if (i == 0){
-        i = 4;
-}
-        i-=1;
     intrebareElement.innerText = intrebari[i].intrebare;
     buton1.innerText = intrebari[i].raspuns[0][0];
     buton2.innerText = intrebari[i].raspuns[1][0];
