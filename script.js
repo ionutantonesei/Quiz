@@ -12,6 +12,7 @@ let validareButon3 = 0;
 let validareButon4 = 0;
 let i = 0;
 let corect = 0;
+let scor = 0;
 
 
 let intrebari = [{
@@ -47,53 +48,71 @@ butonStart.addEventListener('click',function start(){
 });
 
 buton1.addEventListener('click',()=>{
-    if (validareButon1 == 1){
-        buton1.style.backgroundColor = 'darkolivegreen';
-        validareButon1 = 0;
-    }
-    else {
+    if (validareButon1 == 0){
         buton1.style.backgroundColor = 'darkorange';
         validareButon1 = 1;
     }
-});
-buton2.addEventListener('click',()=>{
-    if (validareButon2 == 1){
-        buton2.style.backgroundColor = 'darkolivegreen';
-        validareButon2 = 0;
+    if (validareButon1 == 1 && intrebari[i].raspuns[0][1] == true){
+        corect = 1;
+    }
+    else if (validareButon1 == 1 && intrebari[i].raspuns[0][1] == false){
+        corect = -1;
     }
     else {
+        corect = corect;
+    }
+});
+buton2.addEventListener('click',()=>{
+    if (validareButon2 == 0){
         buton2.style.backgroundColor = 'darkorange';
         validareButon2 = 1;
     }
-});
-buton3.addEventListener('click',()=>{
-    if (validareButon3 == 1){
-        buton3.style.backgroundColor = 'darkolivegreen';
-        validareButon3 = 0;
+    if (validareButon2 == 1 && intrebari[i].raspuns[1][1] == true){
+        corect = 1;
+    }
+    else if (validareButon2 == 1 && intrebari[i].raspuns[1][1] == false){
+        corect = -1;
     }
     else {
+        corect = corect;
+    }
+});
+buton3.addEventListener('click',()=>{
+    if (validareButon3 == 0){
         buton3.style.backgroundColor = 'darkorange';
         validareButon3 = 1;
     }
-});
-buton4.addEventListener('click',()=>{
-    if (validareButon4 == 1){
-        buton4.style.backgroundColor = 'darkolivegreen';
-        validareButon4 = 0;
+    if (validareButon3 == 1 && intrebari[i].raspuns[2][1] == true){
+        corect = 1;
+    }
+    else if (validareButon3 == 1 && intrebari[i].raspuns[2][1] == false){
+        corect = -1;
     }
     else {
+        corect = corect;
+    }
+});
+buton4.addEventListener('click',()=>{
+    if (validareButon4 == 0){
         buton4.style.backgroundColor = 'darkorange';
         validareButon4 = 1;
     }
-});
-urmatorul.addEventListener('click',()=>{
-    if ((validareButon1 == 1 && intrebari[i].raspuns[0][1] == true) || (validareButon2 == 1 && intrebari[i].raspuns[1][1] == true) || (validareButon3 == 1 && intrebari[i].raspuns[2][1] == true) || (validareButon4 == 1 && intrebari[i].raspuns[3][1] == true)){
-        corect+=1;
+    if (validareButon4 == 1 && intrebari[i].raspuns[3][1] == true){
+        corect = 1;
+    }
+    else if (validareButon4 == 1 && intrebari[i].raspuns[3][1] == false){
+        corect = -1;
     }
     else {
-        corect-=1;
+        corect = corect;
     }
-    urmatorulButon = 1;
+});
+urmatorul.addEventListener('click',()=>{
+    validareButon1 = 0;
+    validareButon2 = 0;
+    validareButon3 = 0;
+    validareButon4 = 0;
+    scor+=corect;
     buton1.style.backgroundColor = 'darkolivegreen';
     buton2.style.backgroundColor = 'darkolivegreen';
     buton3.style.backgroundColor = 'darkolivegreen';
@@ -101,7 +120,7 @@ urmatorul.addEventListener('click',()=>{
     i+=1;
     if (i>=intrebari.length){
         i = 0;
-        alert(`Scorul este: ${corect}`);
+        alert(`Scorul este: ${scor}`);
         corect = 0;
     }
     intrebareElement.innerText = intrebari[i].intrebare;
