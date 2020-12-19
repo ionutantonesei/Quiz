@@ -4,8 +4,8 @@ const buton3 = document.getElementById('raspuns3');
 const buton4 = document.getElementById('raspuns4');
 const butonStart = document.getElementById('butonStart');
 const urmatorul = document.getElementById('urmatorul-buton');
-const anterior = document.getElementById('anterior-buton');
 const intrebareElement = document.getElementById('intrebare');
+const stergeButon = document.getElementById('sterge-buton');
 let validareButon1 = 0;
 let validareButon2 = 0;
 let validareButon3 = 0;
@@ -29,13 +29,17 @@ let intrebari = [{
 },
 {
     intrebare : 'In ce an a avut loc Razboiul de independenta din Romania?',
-    raspuns: [['1945' , false],['1989' , false],['1918' , false],['1866' , true]]
+    raspuns: [['1945' , false],['1989' , false],['1918' , false],['1877' , true]]
+},
+{
+    intrebare : 'Care tari se afla in balcani?',
+    raspuns: [['Romania' , true],['Grecia' , true],['Ucraina' , false],['Belarus' , false]]
 }]
 
 butonStart.addEventListener('click',function start(){
     butonStart.style.display = 'none';
     urmatorul.style.display = 'flex';
-    anterior.style.display = 'flex';
+    stergeButon.style.display = 'flex';
     buton1.style.display = 'inline';
     buton2.style.display = 'inline';
     buton3.style.display = 'inline';
@@ -121,11 +125,22 @@ urmatorul.addEventListener('click',()=>{
     if (i>=intrebari.length){
         i = 0;
         alert(`Scorul este: ${scor}`);
-        corect = 0;
+        scor = 0;
     }
     intrebareElement.innerText = intrebari[i].intrebare;
     buton1.innerText = intrebari[i].raspuns[0][0];
     buton2.innerText = intrebari[i].raspuns[1][0];
     buton3.innerText = intrebari[i].raspuns[2][0];
     buton4.innerText = intrebari[i].raspuns[3][0];
+})
+
+stergeButon.addEventListener('click',()=>{
+    buton1.style.backgroundColor = 'darkolivegreen';
+    buton2.style.backgroundColor = 'darkolivegreen';
+    buton3.style.backgroundColor = 'darkolivegreen';
+    buton4.style.backgroundColor = 'darkolivegreen';
+    validareButon1 = 0;
+    validareButon2 = 0;
+    validareButon3 = 0;
+    validareButon4 = 0;
 })
