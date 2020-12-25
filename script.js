@@ -6,6 +6,8 @@ const butonStart = document.getElementById('butonStart');
 const urmatorul = document.getElementById('urmatorul-buton');
 const intrebareElement = document.getElementById('intrebare');
 const stergeButon = document.getElementById('sterge-buton');
+const clasamentButon = document.getElementById('butonScor');
+const pozitieElemente = document.getElementById('raspuns-container');
 let validareButon1 = 0;
 let validareButon2 = 0;
 let validareButon3 = 0;
@@ -13,7 +15,6 @@ let validareButon4 = 0;
 let i = 0;
 let corect = 0;
 let scor = 0;
-
 
 let intrebari = [{
     intrebare : 'Cat face 2+2?',
@@ -38,6 +39,7 @@ let intrebari = [{
 
 butonStart.addEventListener('click',function start(){
     butonStart.style.display = 'none';
+    clasamentButon.style.display = 'none';
     urmatorul.style.display = 'flex';
     stergeButon.style.display = 'flex';
     buton1.style.display = 'inline';
@@ -124,6 +126,9 @@ urmatorul.addEventListener('click',()=>{
     i+=1;
     if (i>=intrebari.length){
         i = 0;
+        scorSalvat = scor;
+        numeSalvat = window.prompt('Introduceti numele dvs','utilizator')
+        localStorage.setItem(numeSalvat,scorSalvat);
         alert(`Scorul este: ${scor}`);
         scor = 0;
     }
@@ -144,3 +149,15 @@ stergeButon.addEventListener('click',()=>{
     validareButon3 = 0;
     validareButon4 = 0;
 })
+
+clasamentButon.addEventListener('click',()=>{
+    butonStart.style.display = 'none';
+    clasamentButon.style.display = 'none';
+    for (let i = 0;i<localStorage.length;i++){
+    let element = document.createElement('p');
+    element.style.margin = '2vw';
+    element.innerText = `Scorul lui ${localStorage.key(i)} a fost: ${localStorage.getItem(localStorage.key(i))}`;
+    pozitieElemente.appendChild(element);
+    }
+})
+
