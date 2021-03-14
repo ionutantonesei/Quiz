@@ -37,7 +37,7 @@ let scor = 0;
     raspuns: [['Romania' , true],['Grecia' , true],['Ucraina' , false],['Belarus' , false]]
 }]*/
 
-fetch('http://localhost:80/posts').then(response =>{
+fetch('http://localhost:3000/toate').then(response =>{
     return response.json()
 }).then(data =>{
     console.log(data[0].intrebare);
