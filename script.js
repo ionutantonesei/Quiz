@@ -16,27 +16,6 @@ let i = 0;
 let corect = 0;
 let scor = 0;
 
-/*let intrebari = [{
-    intrebare : 'Cat face 2+2?',
-    raspuns : [['2' , false],['4',true],['10',false],['0',false]]
-},
-{
-    intrebare : 'Care este capitala Romaniei?',
-    raspuns : [['Bucuresti' , true ],['Iasi', false],['Craiova' , false],['Budapesta' , false]]
-},
-{
-    intrebare : 'Care este cel mai inalt varf muntos din Romania?',
-    raspuns: [['Negoiu' , false],['Moldoveanu' , true],['Omu' , false],['Rodnei' , false]]
-},
-{
-    intrebare : 'In ce an a avut loc Razboiul de independenta din Romania?',
-    raspuns: [['1945' , false],['1989' , false],['1918' , false],['1877' , true]]
-},
-{
-    intrebare : 'Care tari se afla in balcani?',
-    raspuns: [['Romania' , true],['Grecia' , true],['Ucraina' , false],['Belarus' , false]]
-}]*/
-
 fetch('http://localhost:3000/toate').then(response =>{
     return response.json()
 }).then(data =>{
@@ -54,12 +33,7 @@ fetch('http://localhost:3000/toate').then(response =>{
         buton2.style.display = 'inline';
         buton3.style.display = 'inline';
         buton4.style.display = 'inline';
-        //intrebareElement.innerText = intrebari[0].intrebare;
         intrebareElement.innerText = data[0].intrebare;
-        //buton1.innerText = intrebari[0].raspuns[0][0];
-        //buton2.innerText = intrebari[0].raspuns[1][0];
-        //buton3.innerText = intrebari[0].raspuns[2][0];
-        //buton4.innerText = intrebari[0].raspuns[3][0];
         buton1.innerText = data[0].raspunsuri[0][0];
         buton2.innerText = data[0].raspunsuri[1][0];
         buton3.innerText = data[0].raspunsuri[2][0];
@@ -113,12 +87,6 @@ fetch('http://localhost:3000/toate').then(response =>{
         if (validareButon1 == 1 && data[i].raspunsuri[0][1] == true){
             corect = 1;
         }
-        else if (validareButon1 == 1 && data[i].raspunsuri[0][1] == false){
-            corect = -1;
-        }
-        else {
-            corect = corect;
-        }
     });
     buton2.addEventListener('click',()=>{
         if (validareButon2 == 0){
@@ -127,12 +95,6 @@ fetch('http://localhost:3000/toate').then(response =>{
         }
         if (validareButon2 == 1 && data[i].raspunsuri[1][1] == true){
             corect = 1;
-        }
-        else if (validareButon2 == 1 && data[i].raspunsuri[1][1] == false){
-            corect = -1;
-        }
-        else {
-            corect = corect;
         }
     });
     buton3.addEventListener('click',()=>{
@@ -143,12 +105,6 @@ fetch('http://localhost:3000/toate').then(response =>{
         if (validareButon3 == 1 && data[i].raspunsuri[2][1] == true){
             corect = 1;
         }
-        else if (validareButon3 == 1 && data[i].raspunsuri[2][1] == false){
-            corect = -1;
-        }
-        else {
-            corect = corect;
-        }
     });
     buton4.addEventListener('click',()=>{
         if (validareButon4 == 0){
@@ -157,12 +113,6 @@ fetch('http://localhost:3000/toate').then(response =>{
         }
         if (validareButon4 == 1 && data[i].raspunsuri[3][1] == true){
             corect = 1;
-        }
-        else if (validareButon4 == 1 && data[i].raspunsuri[3][1] == false){
-            corect = -1;
-        }
-        else {
-            corect = corect;
         }
     });
 
