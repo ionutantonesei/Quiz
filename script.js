@@ -104,8 +104,9 @@ fetch('http://localhost:3000/toate').then(response =>{
             corect= 1;
         }
         else if (validareButon1 == 1 && data[i].raspunsuri[0][1] == null){
-            corect= 0;
+            corect= -1;
         }
+        else corect = 0;
     });
     buton2.addEventListener('click',()=>{
         if (validareButon2 == 0){
@@ -116,8 +117,9 @@ fetch('http://localhost:3000/toate').then(response =>{
             corect= 1;
         }
         else if (validareButon2 == 1 && data[i].raspunsuri[1][1] == null){
-            corect= 0;
+            corect= -1;
         }
+        else corect = 0;
     });
     buton3.addEventListener('click',()=>{
         if (validareButon3 == 0){
@@ -128,8 +130,9 @@ fetch('http://localhost:3000/toate').then(response =>{
             corect= 1;
         }
         else if (validareButon3 == 1 && data[i].raspunsuri[2][1] == null){
-            corect= 0;
+            corect= -1;
         }
+        else corect = 0;
     });
     buton4.addEventListener('click',()=>{
         if (validareButon4 == 0){
@@ -140,8 +143,9 @@ fetch('http://localhost:3000/toate').then(response =>{
             corect= 1;
         }
         else if (validareButon4 == 1 && data[i].raspunsuri[3][1] == null){
-            corect= 0;
+            corect= -1;
         }
+        else corect = 0;
     });
 
     
