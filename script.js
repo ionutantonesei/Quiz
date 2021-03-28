@@ -84,7 +84,7 @@ fetch('http://localhost:3000/toate').then(response =>{
             buton1.style.backgroundColor = 'darkorange';
             validareButon1 = 1;
         }
-        if (validareButon1 == 1 && data[i].raspunsuri[0][1] == true){
+        if (validareButon1 == 1 && data[i].raspunsuri[0][1] == "true"){
             corect = 1;
         }
     });
@@ -93,7 +93,7 @@ fetch('http://localhost:3000/toate').then(response =>{
             buton2.style.backgroundColor = 'darkorange';
             validareButon2 = 1;
         }
-        if (validareButon2 == 1 && data[i].raspunsuri[1][1] == true){
+        if (validareButon2 == 1 && data[i].raspunsuri[1][1] == "true"){
             corect = 1;
         }
     });
@@ -102,7 +102,7 @@ fetch('http://localhost:3000/toate').then(response =>{
             buton3.style.backgroundColor = 'darkorange';
             validareButon3 = 1;
         }
-        if (validareButon3 == 1 && data[i].raspunsuri[2][1] == true){
+        if (validareButon3 == 1 && data[i].raspunsuri[2][1] == "true"){
             corect = 1;
         }
     });
@@ -111,7 +111,7 @@ fetch('http://localhost:3000/toate').then(response =>{
             buton4.style.backgroundColor = 'darkorange';
             validareButon4 = 1;
         }
-        if (validareButon4 == 1 && data[i].raspunsuri[3][1] == true){
+        if (validareButon4 == 1 && data[i].raspunsuri[3][1] == "true"){
             corect = 1;
         }
     });
