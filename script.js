@@ -16,14 +16,35 @@ let i = 0;
 let corect = 0;
 let scor = 0;
 
-fetch('http://localhost:3000/toate').then(response =>{
+/*let intrebari = [{
+    intrebare : 'Cat face 2+2?',
+    raspuns : [['2' , false],['4',true],['10',false],['0',false]]
+},
+{
+    intrebare : 'Care este capitala Romaniei?',
+    raspuns : [['Bucuresti' , true ],['Iasi', false],['Craiova' , false],['Budapesta' , false]]
+},
+{
+    intrebare : 'Care este cel mai inalt varf muntos din Romania?',
+    raspuns: [['Negoiu' , false],['Moldoveanu' , true],['Omu' , false],['Rodnei' , false]]
+},
+{
+    intrebare : 'In ce an a avut loc Razboiul de independenta din Romania?',
+    raspuns: [['1945' , false],['1989' , false],['1918' , false],['1877' , true]]
+},
+{
+    intrebare : 'Care tari se afla in balcani?',
+    raspuns: [['Romania' , true],['Grecia' , true],['Ucraina' , false],['Belarus' , false]]
+}]*/
+
+fetch('http://localhost:3000/test').then(response =>{
     return response.json()
 }).then(data =>{
     console.log(data[0].intrebare);
-    console.log(data[0].raspunsuri[0][0]);
-    console.log(data[0].raspunsuri[1][0]);
-    console.log(data[0].raspunsuri[2][0]);
-    console.log(data[0].raspunsuri[3][0]);
+    console.log(data[0].raspunsuri[0]);
+    console.log(data[0].raspunsuri[1]);
+    console.log(data[0].raspunsuri[2]);
+    console.log(data[0].raspunsuri[3]);
     butonStart.addEventListener('click',function start(){
         butonStart.style.display = 'none';
         clasamentButon.style.display = 'none';
@@ -68,12 +89,7 @@ fetch('http://localhost:3000/toate').then(response =>{
             alert(`Scorul este: ${scor}`);
             scor = 0;
         }
-        //intrebareElement.innerText = intrebari[i].intrebare;
         intrebareElement.innerText = data[i].intrebare;
-        //buton1.innerText = intrebari[i].raspuns[0][0];
-        //buton2.innerText = intrebari[i].raspuns[1][0];
-        //buton3.innerText = intrebari[i].raspuns[2][0];
-        //buton4.innerText = intrebari[i].raspuns[3][0];
         buton1.innerText = data[i].raspunsuri[0][0];
         buton2.innerText = data[i].raspunsuri[1][0];
         buton3.innerText = data[i].raspunsuri[2][0];
@@ -87,7 +103,12 @@ fetch('http://localhost:3000/toate').then(response =>{
         if (validareButon1 == 1 && data[i].raspunsuri[0][1] == 1){
             corect = 1;
         }
-        else corect = 0;
+        else if (validareButon1 == 1 && data[i].raspunsuri[0][1] == null && scor >0){
+            corect = -1;
+        }
+        else {
+            corect = corect;
+        }
     });
     buton2.addEventListener('click',()=>{
         if (validareButon2 == 0){
@@ -97,7 +118,12 @@ fetch('http://localhost:3000/toate').then(response =>{
         if (validareButon2 == 1 && data[i].raspunsuri[1][1] == 1){
             corect = 1;
         }
-        else corent = 0;
+        else if (validareButon2 == 1 && data[i].raspunsuri[1][1] == null && scor >0){
+            corect = -1;
+        }
+        else {
+            corect = corect;
+        }
     });
     buton3.addEventListener('click',()=>{
         if (validareButon3 == 0){
@@ -107,7 +133,12 @@ fetch('http://localhost:3000/toate').then(response =>{
         if (validareButon3 == 1 && data[i].raspunsuri[2][1] == 1){
             corect = 1;
         }
-        else corect = 0;
+        else if (validareButon3 == 1 && data[i].raspunsuri[2][1] == null && scor >0){
+            corect = -1;
+        }
+        else {
+            corect = corect;
+        }
     });
     buton4.addEventListener('click',()=>{
         if (validareButon4 == 0){
@@ -117,7 +148,12 @@ fetch('http://localhost:3000/toate').then(response =>{
         if (validareButon4 == 1 && data[i].raspunsuri[3][1] == 1){
             corect = 1;
         }
-        else corect = 0;
+        else if (validareButon4 == 1 && data[i].raspunsuri[3][1] == null && scor >0){
+            corect = -1;
+        }
+        else {
+            corect = corect;
+        }
     });
 
     
